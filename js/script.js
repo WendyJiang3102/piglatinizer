@@ -5,13 +5,33 @@
 // CREATE THE FUNCTIONS BELOW
 
 // Document Ready Function. All of your jQuery should go in here. 
-$( document ).ready(function() {
+$(document).ready(function(){
   
+  $("input").keyup(function(event){
+    if (event.keyCode === 13){
+      $("#submit").click();
+    }
+  });
+  
+  $("#submit").click(function(){
+    var a = $("#word").val().split(" ");
 
+    function sentenceToPigLatin(sentence){
+      return sentence + "Mmm";
+    }
+    
+    // message = ['jennifer', 'says', 'meow']
+    var b = '';
+    for(var i = 0; i < a.length; i = i + 1){
+      b += sentenceToPigLatin(a[i]);
+    }
+    
+    $("#result").html(b);
 
-
+  });
+  
 });
-
+  
 
 // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
 
