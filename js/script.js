@@ -12,26 +12,40 @@ $(document).ready(function(){
       $("#submit").click();
     }
   });
+    $('#clear').click(function(){
+      $("#result").html("");
+      $("#msg").val("");
+      
+    });
   
   $("#submit").click(function(){
-    var a = $("#word").val().split(" ");
-
-    function sentenceToPigLatin(sentence){
-      return sentence + "Mmm";
+    var message = $("#msg").val().split(" ");
+    $("#msg").val("");
+    function meow(word){
+      var v = ["a", "e", "i", "o", "u"];
+      var firstChar = word.charAt(0);
+      if(v.includes(firstChar)){
+        return word + "meow ";
+      
+      }else{
+        // everything but first letter + first letter + meow
+        return word.slice(1) + word.slice(0,1) + "meow ";
+      }
+      
     }
     
-    // message = ['jennifer', 'says', 'meow']
-    var b = '';
-    for(var i = 0; i < a.length; i = i + 1){
-      b += sentenceToPigLatin(a[i]);
+    
+  
+    var catMessage = " ";
+    for(var i = 0; i < message.length; i++){
+      catMessage += meow(message[i]);
     }
     
-    $("#result").html(b);
+    $("#result").html(catMessage);
 
   });
   
 });
-  
 
 // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
 
