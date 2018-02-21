@@ -21,27 +21,27 @@ $(document).ready(function(){
   $("#submit").click(function(){
     var message = $("#msg").val().split(" ");
     $("#msg").val("");
-    function meow(word){
+    function pigLatin(word){
       var v = ["a", "e", "i", "o", "u"];
       var firstChar = word.charAt(0);
       if(v.includes(firstChar)){
-        return word + "meow ";
+        return word + "yay ";
       
       }else{
-        // everything but first letter + first letter + meow
-        return word.slice(1) + word.slice(0,1) + "meow ";
+        // everything but first letter + first letter + ay
+        return word.slice(1) + word.slice(0,1) + "ay ";
       }
       
     }
     
     
   
-    var catMessage = " ";
+    var Message = " ";
     for(var i = 0; i < message.length; i++){
-      catMessage += meow(message[i]);
+      Message += pigLatin(message[i]);
     }
     
-    $("#result").html(catMessage);
+    $("#result").html(Message);
 
   });
   
